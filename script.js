@@ -1,5 +1,6 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
+const nuvens = document.querySelector('.nuvens');
 
 function jump(){
 
@@ -14,8 +15,9 @@ function jump(){
 const loop = setInterval(() => {
     const pipePosition = pipe.offsetLeft;
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px',"");
+    const nuvensPosition = +window.getComputedStyle(nuvens).right.replace('px',"");
 
-    if(pipePosition <= 142 && pipePosition > 0 && marioPosition < 80){
+    if(pipePosition <= 140 && pipePosition > 0 && marioPosition < 80){
 
         /*PIPE*/
         pipe.style.animation = 'none';
@@ -28,10 +30,17 @@ const loop = setInterval(() => {
         mario.style.width = '90px'
         mario.style.marginLeft = '55px';
 
+        /*NUVENS*/
+        nuvens.style.animation = 'none';
+        nuvens.style.right = `${nuvensPosition}px`;
+    
+        
+
         /*pausando loop caso dê o "game over"*/
             clearInterval(loop);
     }
 
 }, 10);
 
+/*keydown de listener p qualquer tecla*/
 document.addEventListener('keydown', jump);

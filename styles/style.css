@@ -4,8 +4,6 @@
     box-sizing: border-box;
 
 }
-
-
 .game-board{
     width: 90%;
     height: 500px;
@@ -13,30 +11,28 @@
     margin: 2rem auto;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(#87CEEB, #f1f9fd);
+    border-bottom: 15px solid rgb(35, 160, 35);
 }
-
 .pipe{  
     width: 80px;
     position: absolute;
     bottom: 0;
     animation: pipe-animation 1.5s infinite linear;
-
 }
-
-
-.mario{
- 
-    width: 180px;
+.nuvens{
+    width: 450px;
     position: absolute;
-    bottom: 0;
-    
-    
+    animation: nuvens-animation 7s linear infinite;
 }
-
+.mario{
+    width: 150px;
+    position: absolute;
+    bottom: 0;  
+}
 
 .jump{
     animation: mariojump 500ms ease-out;
-
 }
 
 @keyframes pipe-animation {
@@ -70,5 +66,14 @@
     bottom: 0;
    }
 
+}
 
+@keyframes nuvens-animation {
+    from{
+        right: -450px;
+    }
+    
+    to{
+        right: 100%;
+    }
 }
